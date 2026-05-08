@@ -44,6 +44,7 @@ def cadastrar_usuario(
     request: Request,
     email: str = Form(...),
     senha: str = Form(...),
+    nome: str = Form(...),
     db: Session = Depends(get_db) # Dependência com a tabela 
 ):
 
@@ -59,7 +60,7 @@ def cadastrar_usuario(
         )
 
     # Cria um objeto 
-    novo_usuario = Usuario(email=email, senha=senha)
+    novo_usuario = Usuario(email=email, senha=senha, nome=nome)
     db.add(novo_usuario)
     db.commit()
 
