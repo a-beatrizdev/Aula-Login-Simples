@@ -29,3 +29,13 @@ def tela_login(request: Request):
         "login.html",
         {"request": request}
     )
+
+#Tela inicial 
+@app.get("/")
+def home(request: Request):
+    return templates.TemplateResponse(
+        request,
+        "home.html",
+        {"request": request}
+    )
+

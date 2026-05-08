@@ -1,22 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Cadastro | SENAI</title>
+    <style>
+        :root {
+            --vermelho-senai: #ff0000; /* Vermelho vibrante padrão */
+            --vermelho-escuro: #cc0000;
+            --cinza-fundo: #f8f9fa;
+            --branco: #ffffff;
+            --texto-corpo: #2d2d2d;
+            --borda: #dddddd;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--cinza-fundo);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container-cadastro {
+            background-color: var(--branco);
+            width: 100%;
+            max-width: 380px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-left: 8px solid var(--vermelho-senai); /* Destaque lateral no tema vermelho */
+        }
+
+        .header-cadastro {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .logo-senai {
+            color: var(--vermelho-senai);
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            color: var(--texto-corpo);
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        .form-campo {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--borda);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--vermelho-senai);
+            box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+        }
+
+        .btn-cadastrar {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--vermelho-senai);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-cadastrar:hover {
+            background-color: var(--vermelho-escuro);
+        }
+
+        .link-retorno {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .link-retorno a {
+            color: var(--vermelho-senai);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link-retorno a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Cadastro</h1>
 
-    <form action="/cadastro" method="post">
-        Email: <input type="email" name="email">
-        <br> <br>
-        Senha: <input type="password" name="senha">
-        <br> <br>
-        <button type="submit">Cadastrar</button>
-    </form>
-    
+    <div class="container-cadastro">
+        <div class="header-cadastro">
+            <p class="logo-senai">SENAI</p>
+            <h1>Portal de Cadastro</h1>
+        </div>
 
+        <form action="/cadastro" method="post">
+            <div class="form-campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="nome@provedor.com" required>
+            </div>
+
+            <div class="form-campo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn-cadastrar">Finalizar Cadastro</button>
+        </form>
+
+        <div class="link-retorno">
+            <span>Já é cadastrado?</span> 
+            <a href="/login">Entrar</a>
+        </div>
+    </div>
 
 </body>
 </html>
