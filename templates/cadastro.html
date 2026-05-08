@@ -140,6 +140,12 @@
             <button type="submit" class="btn-cadastrar">Finalizar Cadastro</button>
         </form>
 
+        {% if erro %}
+            <p style="color:#ff0000">{{ erro }}</p>
+        {% endif %}
+        <br>
+
+
         <div class="link-retorno">
             <span>Já é cadastrado?</span> 
             <a href="/login">Entrar</a>
